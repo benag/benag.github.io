@@ -1,0 +1,1 @@
+handlerMap=[{"key":"","element":"אשר","eventAttrs":["bottom","50"],"action":"navigate","attr":"ApproveDetails.html","initHandler":"","responseHandler":"","failureHandler":""},{"key":"","element":"דחה","eventAttrs":["bottom","50"],"action":"function","attr":"postpone","initHandler":"","responseHandler":"","failureHandler":""}];

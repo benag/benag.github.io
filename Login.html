@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta name="Modified" content="1549447883537"> 
+  <title>כניסה</title> 
+  <!-- META --> 
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta http-equiv="Pragma" content="no-cache"> 
+  <meta http-equiv="Expires" content="0"> 
+  <meta http-equiv="cache-control" content="no-cache,no-store, must-revalidate"> 
+  <meta http-equiv="last-modified" content="1549447883537"> 
+  <meta name="Created-By" content="manager"> 
+  <meta name="Creation-Timestamp" content="1549447883537"> 
+  <!-- CSS imports --> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryMobile/jquery.mobile.theme-1.4.5.min.css"> 
+  <link rel="stylesheet" href="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.css"> 
+  <link rel="stylesheet" href="../../res/nativeDroid/css/nativedroid2.css"> 
+  <link rel="stylesheet" href="../../res/bootstrap/css/bootstrap.min.css"> 
+  <link rel="stylesheet" href="css/app.common.css"> 
+  <!-- Javascript imports --> 
+  <script type="text/javascript" src="../../res/jquery/jquery.min.js"></script> 
+  <script type="text/javascript" src="../../res/jquery/jquery-dateFormat.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryMobile/jquery.mobile-1.4.5.min.js"></script> 
+  <script type="text/javascript" src="../../res/jqueryUi/jquery-ui-1.10.1.custom.min.js"></script> 
+  <script type="text/javascript" src="../../res/nativeDroid/js/nativedroid2.js"></script> 
+  <!-- AuraPlayer imports --> 
+  <script type="text/javascript" src="../../res/dist/auraplayer.js"></script> 
+  <script type="text/javascript" src="js/app.common.js"></script> 
+  <script type="text/javascript" src="js/Login.handlers.js"></script> 
+  <script type="text/javascript" src="js/Login.js"></script> 
+ </head> 
+ <body> 
+  <script type="text/javascript">
+	
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	
+
+	    
+	    Fields.validate();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	defaultValues['B0_USERID_0'] = null;
+	
+	
+	
+	defaultValues['B0_PASSWORD_0'] = null;
+	
+	
+	
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+  <div id="mainPage" data-role="page" data-theme="a" class="background-crop"> 
+   <div data-role="header" id="header" data-theme="a"> 
+    <div class="container-fluid"> 
+     <div class="row"> 
+      <a id="titleRow-button" href="#leftpanel" class="ui-btn" style="visibility: hidden"><h3>☰</h3></a> 
+      <a id="headerLogo" href="javascript:navigate('Login.html')"> <img src="../../www/img/shikun.png"> </a> 
+      <h3 id="header-title">כניסה</h3> 
+     </div> 
+    </div> 
+   </div> 
+   <div data-role="main" class="ui-content"> 
+    <form id="mainForm"> 
+     <span id="B0_USERID_0_container" style="display: inline-block; width: 98.0%"> <label for="B0_USERID_0"> 
+       <nobr>
+        קוד משתמש
+       </nobr> </label> <input id="B0_USERID_0" name="קוד משתמש" type="number" value=""> </span> 
+     <span id="B0_PASSWORD_0_container" style="display: inline-block; width: 98.0%"> <label for="B0_PASSWORD_0"> 
+       <nobr>
+        סיסמא
+       </nobr> </label> <input id="B0_PASSWORD_0" name="סיסמא" type="password" value=""> </span> 
+    </form> 
+    <button id="כניסה" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; width: 98.0% !important"> כניסה </button> 
+   </div> 
+   <!-- Info popup (single OK button) / Confirm popup (OK & Cancel buttons) --> 
+   <div data-role="popup" id="popup" data-overlay-theme="a" data-theme="a" data-dismissible="false"> 
+    <div data-role="header" data-theme="a"> 
+     <h1 id="popupTitle" style="text-align: center"></h1> 
+    </div> 
+    <div role="main" class="ui-content" style="text-align: center"> 
+     <p id="popupMessage"></p> 
+     <a id="popupOkButton" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a"></a> 
+     <a id="popupCancelButton" href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-a"></a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="ui-loader-background"> 
+  </div>   
+ </body>
+</html>

@@ -1,0 +1,1 @@
+handlerMap=[{"key":"","element":"כניסה","eventAttrs":["bottom","100"],"action":"webservice","attr":"Bills_Login","initHandler":"","responseHandler":"navigate:BillsList.html","failureHandler":"popup:הכניסה נכשלה"},{"key":"13","element":"","action":"webservice","attr":"Login","initHandler":"","responseHandler":"navigate:BillsList.html","failureHandler":"popup:הכניסה נכשלה"}];

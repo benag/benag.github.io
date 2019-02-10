@@ -1,0 +1,1 @@
+handlerMap=[{"key":"","element":"","action":"onload","attr":"Bills_getDocumentsList","initHandler":"","responseHandler":"","failureHandler":"popupErrors:"},{"key":"","element":"","action":"tableClick:function","attr":"downloadPage","initHandler":"","responseHandler":"","failureHandler":""}];

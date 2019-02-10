@@ -1,0 +1,65 @@
+<script type="text/javascript" src="js/BillsList.handlers.js"></script> 
+<script type="text/javascript" src="js/BillsList.js"></script> 
+<script type="text/javascript">
+	
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	
+
+	    
+	    Fields.validate();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+  
+   <div data-role="main" class="ui-content"> 
+    <button id="csv" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; width: 98.0% !important"> csv </button> 
+    <form id="mainForm"> 
+    </form> 
+    <input id="tableFilter" data-type="search" placeholder="Search table..."> 
+    <table id="tableOutput" class="table table-responsive table-bordered table-striped table-hover "> 
+     <thead id="tableOutputHead" start-index="0"> 
+      <tr> 
+       <th id="B1_DEAL_NAME_0" name="שם עסקה" data-type="read only" display-format="%s"> שם עסקה </th> 
+       <th id="B1_GUARANTEE_DESC_0" name="שם קבלן" data-type="read only" display-format="%s"> שם קבלן </th> 
+       <th id="B1_TOTAL_SUM_0" name="סכום חשבון" data-type="read only" display-format="%s"> סכום חשבון </th> 
+       <th id="B1_CURRENT_DATE_0" name="תא.צפוי לתשלום" data-type="read only" display-format="%s"> תא.צפוי לתשלום </th> 
+       <th id="B1_BIZUA_PERC_0" name="% ביצוע" data-type="read only" display-format="%s"> % ביצוע </th> 
+      </tr> 
+     </thead> 
+     <tbody id="tableOutputBody"> 
+      <tr></tr> 
+     </tbody> 
+    </table> 
+   </div> 
+   <div id="leftpanel" data-role="panel" data-display="overlay" data-position="right" data-position-fixed="true"> 
+    <span id="hamburger-title"></span> 
+    <a href="#" id="hamburger-close" style="float:left" class="ui-btn ui-icon-carat-r ui-btn-icon-left" data-rel="close"></a> 
+    <ul data-role="listview"> 
+     <li data-icon="ui-icon-blank"><a href="Login.html" data-ajax="false">כניסה</a></li> 
+     <li data-icon="ui-icon-blank"><a href="BillsList.html" data-ajax="false">חשבונות לאישור</a></li> 
+     <li data-icon="ui-icon-blank"><a href="ApproveDetails.html" data-ajax="false">אישור חשבון</a></li> 
+     <li data-icon="ui-icon-blank"><a href="DeclineDetails.html" data-ajax="false">דחית חשבון</a></li> 
+     <li data-icon="ui-icon-blank"><a href="DocumentList.html" data-ajax="false">מסמכים</a></li> 
+    </ul> 
+   </div>

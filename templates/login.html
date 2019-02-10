@@ -1,0 +1,41 @@
+<script type="text/javascript" src="js/Login.handlers.js"></script> 
+<script type="text/javascript" src="js/Login.js"></script> 
+<script type="text/javascript">
+	$(function () {
+		//Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	    Fields.validate();
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	var defaultValues = {};
+	defaultValues['B0_USERID_0'] = null;
+	defaultValues['B0_PASSWORD_0'] = null;
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+
+<div data-role="main" class="ui-content"> 
+    <form id="mainForm"> 
+     <span id="B0_USERID_0_container" style="display: inline-block; width: 98.0%"> <label for="B0_USERID_0"> 
+       <nobr>
+        קוד משתמש
+       </nobr> </label> <input id="B0_USERID_0" name="קוד משתמש" type="number" value=""> </span> 
+     <span id="B0_PASSWORD_0_container" style="display: inline-block; width: 98.0%"> <label for="B0_PASSWORD_0"> 
+       <nobr>
+        סיסמא
+       </nobr> </label> <input id="B0_PASSWORD_0" name="סיסמא" type="password" value=""> </span> 
+    </form> 
+    <button id="כניסה" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; width: 98.0% !important"> כניסה </button> 
+   </div> 
