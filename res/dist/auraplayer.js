@@ -17,7 +17,7 @@ function createList(serviceName, listItemTitle, selectionHandler) {
     //query web service with input parameters
     var params = getInputFieldsAsQueryString();
 
-    var url = "https://35.163.113.45/ServiceManager/Macro/ExecMacro/" + serviceName +
+    var url = "http://35.163.113.45/ServiceManager/Macro/ExecMacro/" + serviceName +
         "?" + params +
         "&json=true";
 
@@ -2229,7 +2229,7 @@ var Services = function() {
 		    
 		    var webServiceUrl;
 		    if (webService.indexOf("/") === -1 && webService.indexOf(".") === -1 && webService.indexOf(":") === -1) {
-		        webServiceUrl = "https://35.163.113.45/ServiceManager/Macro/ExecMacro/" + webService;	//if webService is not URL, assume it is local service
+		        webServiceUrl = "http://35.163.113.45/ServiceManager/Macro/ExecMacro/" + webService;	//if webService is not URL, assume it is local service
 		    } else {
 		        webServiceUrl = webService;		//webService is assumed to be URL
 		    }
