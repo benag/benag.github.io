@@ -1,0 +1,193 @@
+<script type="text/javascript" src="js/BillsDetails.handlers.js"></script> 
+<script type="text/javascript" src="js/BillsDetails.js"></script> 
+<script type="text/javascript">
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	    Fields.validate();
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	var defaultValues = {};
+	defaultValues['B1_CURRENT_DATE_0'] = null;
+	defaultValues['B1_USER_NAME_0'] = null;
+	
+	
+	
+	defaultValues['B1_TOTAL_SUM_0'] = null;
+	
+	
+	
+	defaultValues['B1_GUARANTEE_DESC_0'] = null;
+	
+	
+	
+	defaultValues['B1_ACCOUNT_NO_0'] = null;
+	
+	
+	
+	defaultValues['B1_YEAR_0'] = null;
+	
+	
+	
+	defaultValues['B1_DEAL_NAME_0'] = null;
+	
+	
+	
+	defaultValues['B1_CONTRACT_BILL_STATUS_0'] = null;
+	
+	
+	
+	defaultValues['B1_CONTRACT_NO_0'] = null;
+	
+	
+	
+	defaultValues['B1_STAGE_NAME_0'] = null;
+	
+	
+	
+	defaultValues['B1_COMPID_0'] = null;
+	
+	
+	
+	defaultValues['B1_GUARANTEE_CODE_0'] = null;
+	
+	
+	
+	defaultValues['B1_MONTH_0'] = null;
+	
+	
+	
+	defaultValues['B1_STATUS_0'] = null;
+	
+	
+	
+	defaultValues['B1_DEAL_ID_0'] = null;
+	
+	
+	
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+<form id="mainForm"> 
+    <span id="B1_COMPID_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_COMPID_0"> 
+      <nobr>
+       מספר חברה
+      </nobr> </label> 
+     <div id="B1_COMPID_0" name="מספר חברה" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_DEAL_ID_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_DEAL_ID_0"> 
+      <nobr>
+       עסקה
+      </nobr> </label> 
+     <div id="B1_DEAL_ID_0" name="עסקה" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_CONTRACT_NO_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_CONTRACT_NO_0"> 
+      <nobr>
+       מספר חוזה
+      </nobr> </label> 
+     <div id="B1_CONTRACT_NO_0" name="מספר חוזה" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_GUARANTEE_CODE_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_GUARANTEE_CODE_0"> 
+      <nobr>
+       קבלן
+      </nobr> </label> 
+     <div id="B1_GUARANTEE_CODE_0" name="קבלן" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_DEAL_NAME_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_DEAL_NAME_0"> 
+      <nobr>
+       שם עסקה
+      </nobr> </label> 
+     <div id="B1_DEAL_NAME_0" name="שם עסקה" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_GUARANTEE_DESC_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_GUARANTEE_DESC_0"> 
+      <nobr>
+       שם קבלן
+      </nobr> </label> 
+     <div id="B1_GUARANTEE_DESC_0" name="שם קבלן" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_ACCOUNT_NO_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_ACCOUNT_NO_0"> 
+      <nobr>
+       מס' ח-ן
+      </nobr> </label> 
+     <div id="B1_ACCOUNT_NO_0" name="מס' ח-ן" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_YEAR_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_YEAR_0"> 
+      <nobr>
+       שנה
+      </nobr> </label> 
+     <div id="B1_YEAR_0" name="שנה" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_MONTH_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_MONTH_0"> 
+      <nobr>
+       חודש
+      </nobr> </label> 
+     <div id="B1_MONTH_0" name="חודש" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_TOTAL_SUM_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_TOTAL_SUM_0"> 
+      <nobr>
+       סכום חשבון
+      </nobr> </label> 
+     <div id="B1_TOTAL_SUM_0" name="סכום חשבון" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_STAGE_NAME_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_STAGE_NAME_0"> 
+      <nobr>
+       שלב נוכחי
+      </nobr> </label> 
+     <div id="B1_STAGE_NAME_0" name="שלב נוכחי" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_USER_NAME_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_USER_NAME_0"> 
+      <nobr>
+       משתמשים מטפלים
+      </nobr> </label> 
+     <div id="B1_USER_NAME_0" name="משתמשים מטפלים" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_STATUS_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_STATUS_0"> 
+      <nobr>
+       מאושר
+      </nobr> </label> 
+     <div id="B1_STATUS_0" name="מאושר" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_CONTRACT_BILL_STATUS_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_CONTRACT_BILL_STATUS_0"> 
+      <nobr>
+       סוג
+      </nobr> </label> 
+     <div id="B1_CONTRACT_BILL_STATUS_0" name="סוג" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+    <span id="B1_CURRENT_DATE_0_container" style="display: inline-block; width: 98.0%"> <label for="B1_CURRENT_DATE_0"> 
+      <nobr>
+       תא.צפוי לתשלום
+      </nobr> </label> 
+     <div id="B1_CURRENT_DATE_0" name="תא.צפוי לתשלום" class="read-only " tag="input">
+      &nbsp;
+     </div> </span> 
+   </form> 
+   <button id="אשר" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; padding-right: 0; padding-left: 0; width: 49.0% !important"> אשר </button> 
+   <button id="דחה" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; padding-right: 0; padding-left: 0; width: 49.0% !important"> דחה </button> 

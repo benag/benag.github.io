@@ -1,0 +1,35 @@
+<script type="text/javascript" src="js/DeclineDetails.handlers.js"></script> 
+<script type="text/javascript" src="js/DeclineDetails.js"></script> 
+<script type="text/javascript">
+	
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	
+
+	    
+	    Fields.validate();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script>
+<form id="mainForm"> 
+</form> 

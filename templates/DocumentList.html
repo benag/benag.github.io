@@ -1,0 +1,49 @@
+<script type="text/javascript" src="js/DocumentList.handlers.js"></script> 
+<script type="text/javascript" src="js/DocumentList.js"></script> 
+<script type="text/javascript">
+	
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	
+
+	    
+	    Fields.validate();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+<form id="mainForm"> 
+</form> 
+<input id="tableFilter" data-type="search" placeholder="Search table..."> 
+<table id="tableOutput" class="table table-responsive table-bordered table-striped table-hover "> 
+ <thead id="tableOutputHead" start-index="0"> 
+  <tr> 
+   <th id="B7_FILE_TYPE_DESC_0" name="סוג קובץ" data-type="read only" display-format="%s"> סוג קובץ </th> 
+   <th id="B7_FILE_NAME_0" name="שם קובץ" data-type="read only" display-format="%s"> שם קובץ </th> 
+   <th id="B7_INSERT_DATE_0" name="תאריך מסמך" data-type="read only" display-format="%s"> תאריך מסמך </th> 
+   <th id="B7_USER_NAME_0" name="משתמש קולט " data-type="read only" display-format="%s"> משתמש קולט </th> 
+  </tr> 
+ </thead> 
+ <tbody id="tableOutputBody"> 
+  <tr></tr> 
+ </tbody> 
+</table>

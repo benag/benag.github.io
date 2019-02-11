@@ -40,7 +40,7 @@
    <div data-role="header" id="header" data-theme="a"> 
     <div class="container-fluid"> 
      <div class="row"> 
-      <a id="titleRow-button" href="#leftpanel" class="ui-btn" style="visibility: hidden"><h3>☰</h3></a> 
+      <a id="titleRow-button" href="#leftpanel" class="ui-btn" ><h3>☰</h3></a> 
       <a id="headerLogo" href="javascript:navigate('Login.html')"> <img src="www/img/shikun.png"> </a> 
       <h3 id="header-title">כניסה</h3> 
      </div> 
@@ -49,6 +49,17 @@
    
    <div id="content" class="ui-content"> 
 
+   </div>
+   <div id="leftpanel" data-role="panel" data-display="overlay" data-position="right" data-position-fixed="true"> 
+    <span id="hamburger-title"></span> 
+    <a href="#" id="hamburger-close" style="float:left" class="ui-btn ui-icon-carat-r ui-btn-icon-left" data-rel="close"></a> 
+    <ul data-role="listview"> 
+     <li data-icon="ui-icon-blank"><a href="Login.html" data-ajax="false">כניסה</a></li> 
+     <li data-icon="ui-icon-blank"><a href="BillsList.html" data-ajax="false">חשבונות לאישור</a></li> 
+     <li data-icon="ui-icon-blank"><a href="ApproveDetails.html" data-ajax="false">אישור חשבון</a></li> 
+     <li data-icon="ui-icon-blank"><a href="DeclineDetails.html" data-ajax="false">דחית חשבון</a></li> 
+     <li data-icon="ui-icon-blank"><a href="DocumentList.html" data-ajax="false">מסמכים</a></li> 
+    </ul> 
    </div> 
    <!-- Info popup (single OK button) / Confirm popup (OK & Cancel buttons) --> 
    <div data-role="popup" id="popup" data-overlay-theme="a" data-theme="a" data-dismissible="false"> 
