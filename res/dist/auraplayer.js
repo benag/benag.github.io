@@ -927,10 +927,19 @@ var Router =  {
 		this.app.run('#/login/');
 	},
 	navigate(location){
+		    
+		var loginPage = Page.getLoginPage();
+		loginPage = loginPage.toLowerCase();
+		loginPage = loginPage.split('.')[0];
+		let currentPage = window.location.href;
+		if (currentPage.indexOf(loginPage) !=-1) {
+			sessionStorage.setItem('_is_logged_in', location !== undefined && location.indexOf(loginPage) === -1);
+		}
 		var path = location.split('.')[0];
+		this.app.runRoute("get", '#/'+ path + '/');	
 		//window.location.replace('#/'+ path + '/')
 		//window.location('#/'+ path + '/');
-		this.app.runRoute("get", '#/'+ path + '/');	
+		
 		//location.hash('#/'+ path + '/');
 		//this.app.trigger('redirect', {to: '#/'+ path + '/'});
 		//this.app.setLocation('#/'+ path + '/');
