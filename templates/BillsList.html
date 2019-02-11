@@ -3,17 +3,17 @@
 <script type="text/javascript">
 	
 	$(function () {
-		//Page.validateLogin();
-	    Fields.setDefaultValues();
+		Page.validateLogin();
+	    //Fields.setDefaultValues();
 	    Init.initData();
 	
 
 	    
-	    //Fields.validate();
+	  //   Fields.validate();
 	    
-	    $('input').on('input blur', function() {
-	    	setTimeout(Fields.validate, 200);
-		});
+	  //   $('input').on('input blur', function() {
+	  //   	setTimeout(Fields.validate, 200);
+		// });
 	});
 	
 	var defaultValues = {};
