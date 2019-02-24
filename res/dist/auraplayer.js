@@ -22,7 +22,7 @@ function createList(serviceName, listItemTitle, selectionHandler) {
     //query web service with input parameters
     var params = getInputFieldsAsQueryString();
 
-    var url = "http://35.163.113.45/ServiceManager/Macro/ExecMacro/" + serviceName +
+    var url = "https://35.163.113.45/ServiceManager/Macro/ExecMacro/" + serviceName +
         "?" + params +
         "&json=true";
 
