@@ -12,6 +12,11 @@
  *                        @param outputParams  - object containing selected item output params
  *                        default: defaultListSelectionHandler
  */
+
+
+$.mobile.changePage.defaults.changeHash = false;
+window.$.mobile.hashListeningEnabled = false;
+
 function createList(serviceName, listItemTitle, selectionHandler) {
 
     //query web service with input parameters
@@ -828,6 +833,8 @@ if (typeof jQuery.when.all === 'undefined') {
 }
 
 $(document).ready(function(){
+	// $.mobile.changePage.defaults.changeHash = false;
+	// window.$.mobile.hashListeningEnabled = false;
 	Router.Init();
     $("input[type=file]").click(function(){
         $(this).val("");
@@ -900,31 +907,53 @@ function getServiceManagerHost() {
 var Router =  {
 	app:{},
 	Init: function() {
+	
 		this.app = $.sammy(function() {
-			this.get('#/login/', function() {
-				$('#content').load("templates/login.html", function(){
-
-				})	
+			this.get('#/', function() {
+				console.log('login');
+				$.get('/templates/login.html', function(res){
+					$('#content').html(res);
+				})
+				
 	   		});
-			
-			this.get('#/BillsList/', function() {
-				$('#content').load("templates/BillsList.html", function(){
-				})	
+			this.get('#login/', function() {
+				console.log('login');
+				$.get('/templates/login.html', function(res){
+					$('#content').html(res);
+				})
+	   		});
+			this.get('#BillsList/', function() {
+				console.log('BillsList');
+				$.get('/templates/BillsList.html', function(res){
+					$('#content').html(res);
+				})
 			});
-			this.get('#/BillsDetails/', function() {
-				$('#content').load("templates/BillsDetails.html", function(){
-				})	
+			this.get('#ApproveDetails/', function() {
+				console.log('ApproveDetails');
+				$.get('/templates/ApproveDetails.html', function(res){
+					$('#content').html(res);
+				})
 			});
-			this.get('#/DeclineDetails/', function() {
-				$('#content').load("templates/DeclineDetails.html", function(){
-				})	
+			this.get('#BillsDetails/', function() {
+				console.log('BillsDetails');
+				$.get('/templates/BillsDetails.html', function(res){
+					$('#content').html(res);
+				})
 			});
-			this.get('#/DocumentList/', function() {
-				$('#content').load("templates/DocumentList.html", function(){
-				})	
+			this.get('#DeclineDetails/', function() {
+				console.log('DeclineDetails');
+				$.get('/templates/DeclineDetails.html', function(res){
+					$('#content').html(res);
+				})
+			});
+			this.get('#DocumentList/', function() {
+				console.log('DocumentList');
+				$.get('/templates/DocumentList.html', function(res){
+					$('#content').html(res);
+				})
 			});
 		});
-		this.app.run('#/login/');
+		this.app.run('#login/');
 	},
 	navigate(location){
 		    
@@ -935,14 +964,9 @@ var Router =  {
 		if (currentPage.indexOf(loginPage) !=-1) {
 			sessionStorage.setItem('_is_logged_in', location !== undefined && location.indexOf(loginPage) === -1);
 		}
-		var path = location.split('.')[0];
-		this.app.runRoute("get", '#/'+ path + '/');	
-		//window.location.replace('#/'+ path + '/')
-		//window.location('#/'+ path + '/');
-		
-		//location.hash('#/'+ path + '/');
-		//this.app.trigger('redirect', {to: '#/'+ path + '/'});
-		//this.app.setLocation('#/'+ path + '/');
+		window.location.href = window.location.href.slice(0,window.location.href.indexOf('#')) + '#'+location.split('.')[0]+'/';	
+		// this.app.runRoute("get", '#'+ location.split('.')[0] + '/');	
+		//this.app.setLocation('#'+ location.split('.')[0] + '/');
 	}
 }
 /* Refactored */
@@ -956,7 +980,6 @@ var data = {};		//TODO unused?
 window.lastFocusedElement = null;
 
 var Init = function() {
-	
 	
 	function initEventHandlers() {
 		$(document).on("sendRequest", function () {

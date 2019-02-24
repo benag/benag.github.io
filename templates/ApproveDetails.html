@@ -1,0 +1,146 @@
+
+  
+ 
+ <
+  <script type="text/javascript" src="js/ApproveDetails.handlers.js"></script> 
+  <script type="text/javascript" src="js/ApproveDetails.js"></script>    
+  <script type="text/javascript">
+	
+	$(function () {
+		Page.validateLogin();
+	    Fields.setDefaultValues();
+	    Init.initData();
+	
+
+	    
+	    Fields.validate();
+	    
+	    $('input').on('input blur', function() {
+	    	setTimeout(Fields.validate, 200);
+		});
+	});
+	
+	var defaultValues = {};
+	defaultValues['B1_CURRENT_DATE_0'] = null;
+	
+	
+	
+	defaultValues['B1_TOTAL_SUM_0'] = null;
+	
+	
+	
+	defaultValues['B1_GUARANTEE_DESC_0'] = null;
+	
+	
+	
+	defaultValues['B1_ACCOUNT_NO_0'] = null;
+	
+	
+	
+	defaultValues['BITZU_DATE'] = 'B1_MONTH_0 / B1_YEAR_0';
+	
+	
+	
+	defaultValues['B1_DEAL_NAME_0'] = null;
+	
+	
+	
+	defaultValues['B1_STATUS_0'] = null;
+	
+	
+	
+	defaultValues['B_PARAM_REMARKS_0'] = null;
+	
+	
+	
+	
+	function sendRequestHandler() {
+		$("#tableOutput").hide();
+		$("#listOutput").hide();
+	}
+	
+	function receiveResponseHandler(response, serviceName, status, populateFields) {
+	    if (typeof(populateFields) === 'undefined' || populateFields) {
+	    	$("#tableOutput").show();
+	    	$("#listOutput").show();
+	        Fields.validate();
+	    }
+	}
+</script> 
+ 
+   <div data-role="main" class="ui-content"> 
+    <form id="mainForm"> 
+     <span id="B1_DEAL_NAME_0_container" style="display: inline-block; width: 98.0%"> <label for="B1_DEAL_NAME_0"> 
+       <nobr>
+        שם עסקה
+       </nobr> </label> 
+      <div id="B1_DEAL_NAME_0" name="שם עסקה" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B1_GUARANTEE_DESC_0_container" style="display: inline-block; width: 98.0%"> <label for="B1_GUARANTEE_DESC_0"> 
+       <nobr>
+        שם קבלן
+       </nobr> </label> 
+      <div id="B1_GUARANTEE_DESC_0" name="שם קבלן" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B1_TOTAL_SUM_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_TOTAL_SUM_0"> 
+       <nobr>
+        סכום חשבון שוטף
+       </nobr> </label> 
+      <div id="B1_TOTAL_SUM_0" name="סכום חשבון שוטף" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B1_CURRENT_DATE_0_container" style="display: inline-block; width: 49.0%"> <label for="B1_CURRENT_DATE_0"> 
+       <nobr>
+        תא.צפוי לתשלום
+       </nobr> </label> 
+      <div id="B1_CURRENT_DATE_0" name="תא.צפוי לתשלום" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="BITZU_DATE_container" style="display: inline-block; width: 32.6%"> <label for="BITZU_DATE"> 
+       <nobr>
+        תאריך ביצוע
+       </nobr> </label> 
+      <div id="BITZU_DATE" name="תאריך ביצוע" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B1_STATUS_0_container" style="display: inline-block; width: 32.6%"> <label for="B1_STATUS_0"> 
+       <nobr>
+        מאושר
+       </nobr> </label> 
+      <div id="B1_STATUS_0" name="מאושר" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B1_ACCOUNT_NO_0_container" style="display: inline-block; width: 32.6%"> <label for="B1_ACCOUNT_NO_0"> 
+       <nobr>
+        מספר ח-ן
+       </nobr> </label> 
+      <div id="B1_ACCOUNT_NO_0" name="מספר ח-ן" class="read-only " tag="input">
+       &nbsp;
+      </div> </span> 
+     <span id="B_PARAM_REMARKS_0_container" style="display: inline-block; width: 98.0%"> <label for="B_PARAM_REMARKS_0"> 
+       <nobr>
+        הערה
+       </nobr> </label> <input id="B_PARAM_REMARKS_0" name="הערה" type="text" value=""> </span> 
+    </form> 
+    <table id="tableOutput" class="table table-responsive table-bordered table-striped table-hover "> 
+     <thead id="tableOutputHead" start-index="0"> 
+      <tr> 
+       <th id="B3_MARK_0" name="סמן" data-type="checkbox" display-format="true"> סמן </th> 
+       <th id="B3_NEXT_USERID_0" name="משתמש" data-type="read only" display-format="%s"> משתמש </th> 
+       <th id="B3_USER_NAME_0" name="שם המשתמש" data-type="read only" display-format="%s"> שם המשתמש </th> 
+       <th id="B3_POSITION_DESC_0" name="תפקיד המשתמש" data-type="read only" display-format="%s"> תפקיד המשתמש </th> 
+      </tr> 
+     </thead> 
+     <tbody id="tableOutputBody"> 
+      <tr></tr> 
+     </tbody> 
+    </table> 
+    <button id="אשר" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; padding-right: 0; padding-left: 0; width: 49.0% !important"> אשר </button> 
+    <button id="בטל" class="ui-btn clr-primary ui-btn-raised" style="display: inline-block; padding-right: 0; padding-left: 0; width: 49.0% !important"> בטל </button> 
+   </div> 
+  
+   
+  
+ 
