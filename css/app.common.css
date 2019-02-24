@@ -1,5 +1,5 @@
-@import url('../../../res/auraplayer/base.css');
-@import url('../../../res/auraplayer/hamburger.css');
+@import url('../res/auraplayer/base.css');
+@import url('../res/auraplayer/hamburger.css');
 
 @media (min-width: 1px) and (max-width: 550px) {
 	#header-title {
@@ -352,7 +352,21 @@ th {
     border-radius: 10px;
     background-color: #4c4c60 !important;
 }
+/*pwa */
 
+ textarea {
+    width: 100%;
+}
+textarea,
+input{
+	width: 100%;
+	padding: 10px;
+    color: white;
+    border: 1px solid #686876 !important;
+    border-radius: 10px;
+    background-color: #4c4c60 !important;
+}
+/*pwa */
 div.read-only{
     color: white;
     border: 1px solid #686876 !important;
